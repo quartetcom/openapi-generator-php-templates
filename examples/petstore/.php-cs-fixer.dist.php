@@ -1,9 +1,7 @@
 <?php
 
-/**
- * @generated
- * @link https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/HEAD/doc/config.rst
- */
+declare(strict_types=1);
+
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
     ->exclude('vendor')
@@ -11,8 +9,8 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('tests')
 ;
 
-$config = new PhpCsFixer\Config();
-return $config->setRules([
+return (new PhpCsFixer\Config())
+    ->setRules([
         '@PSR12' => true,
         'phpdoc_order' => true,
         'array_syntax' => [ 'syntax' => 'short' ],
@@ -25,5 +23,6 @@ return $config->setRules([
         'blank_line_after_namespace' => false,
         'no_leading_import_slash' => false,
     ])
+    ->setRiskyAllowed(true)
     ->setFinder($finder)
 ;
