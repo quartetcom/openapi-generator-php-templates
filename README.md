@@ -1,33 +1,39 @@
-# openapi-generator-php81-templates
-openapi-generator template for PHP8.1(enum, type declarations)
+# openapi-generator-php-templates
 
-## usage
+OpenAPI Generator templates for PHP 8.1+ with enum and type declarations support.
 
-### create package.json
+## Usage
+
+### Create package.json
 
 ```shell
 npm init
 ```
 
-### add this package(templates) as dependency
+### Add this package (templates) as a dependency
 
 ```shell
-npm install "77web/openapi-generator-php81-templates#v1.0.1"
+npm install 'quartetcom/openapi-generator-php-templates@~8.1'
 ```
 
-### run openapi-generator-cli with `-t` option
+### Run openapi-generator-cli with `-t` option
 
 ```shell
-openapi-generator-cli generate -g php -i path/to/spec.yaml -c path/to/config.json -o ./ -t ./node_modules/quartetcom-openapi-generator-php81-templates/templates
+openapi-generator-cli generate \
+  -g php \
+  -i path/to/spec.yaml \
+  -c path/to/config.json \
+  -o ./ \
+  -t ./node_modules/@quartetcom/openapi-generator-php-templates/templates
 ```
 
-## features
+## Features
 
-- PHP8.1: require PHP8.1+ in composer.json
+- PHP 8.1+: Supports PHP 8.1+
 - Enums: OpenAPI enums are provided in PHP native enums
 - Type declarations for Model methods: No `#[ReturnTypeWillChange]` needed
 
-## how it works
+## How it works
 
 - Templating feature of openapi-generator https://openapi-generator.tech/docs/templating/
 - based on official template https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources/php
