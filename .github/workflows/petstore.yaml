@@ -1,0 +1,23 @@
+name: petstore
+
+on:
+  push:
+    branches:
+      - 8.**
+  pull_request:
+    branches:
+      - 8.**
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run petstore
