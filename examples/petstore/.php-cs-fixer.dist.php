@@ -22,6 +22,7 @@ return (new PhpCsFixer\Config())
         'single_blank_line_at_eof' => false,
         'blank_line_after_namespace' => false,
         'no_leading_import_slash' => false,
+        'declare_strict_types' => true,
     ])
     ->setRiskyAllowed(true)
     ->setFinder($finder)
