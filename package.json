@@ -24,7 +24,8 @@
   "scripts": {
     "petstore:generate": "openapi-generator-cli generate -g php -i ./examples/petstore.yaml -o ./examples/petstore -t ./templates",
     "petstore:install": "cd examples/petstore && composer i",
-    "petstore:lint": "cd examples/petstore && vendor/bin/php-cs-fixer fix -vv --diff --dry-run"
+    "petstore:lint": "cd examples/petstore && vendor/bin/php-cs-fixer fix -vv --diff --dry-run",
+    "petstore": "npm run petstore:generate && npm run petstore:install && npm run petstore:lint"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.5.2"
