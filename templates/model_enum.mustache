@@ -11,12 +11,11 @@ enum {{classname}}: string
 {{/allowableValues}}
     /**
      * Gets allowable values of the enum
-     * @return string[]
+     *
+     * @return list<string>
      */
-    public static function getAllowableEnumValues()
+    public static function getAllowableEnumValues(): array
     {
-        return array_map(function (self $enum) {
-            return $enum->value;
-        }, self::cases());
+        return array_map(fn (self $enum): string => $enum->value, self::cases());
     }
 }
