@@ -360,24 +360,28 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
 
     /**
      * Gets {{name}}
+     *
+     * @return {{^required}}null|{{/required}}{{{dataType}}}
 {{#deprecated}}
      *
      * @deprecated
 {{/deprecated}}
      */
-    public function {{getter}}(): ?{{{dataType}}}
+    public function {{getter}}(): mixed
     {
         return $this->container['{{name}}'];
     }
 
     /**
      * Sets {{name}}
+     *
+     * @param {{^required}}null|{{/required}}{{{dataType}}} ${{name}}{{#description}} {{{.}}}{{/description}}{{^description}} {{{name}}}{{/description}}
 {{#deprecated}}
      *
      * @deprecated
 {{/deprecated}}
      */
-    public function {{setter}}(?{{{dataType}}} ${{name}}): static
+    public function {{setter}}(mixed ${{name}}): static
     {
 {{#isNullable}}
         if (is_null(${{name}})) {

@@ -99,8 +99,10 @@ components:
           format: int64
         name:
           type: string
-        tag:
-          type: string
+        tags:
+          type: array
+          items:
+            type: string
         kind:
           $ref: '#/components/schemas/PetKind'
     Pets:
