@@ -3,12 +3,12 @@ enum {{classname}} : string
     /**
      * Possible values of this enum
      */
-    {{#allowableValues}}
-    {{#enumVars}}
+{{#allowableValues}}
+{{#enumVars}}
     case {{^isString}}NUMBER_{{/isString}}{{{name}}} = {{{value}}};
 
-    {{/enumVars}}
-    {{/allowableValues}}
+{{/enumVars}}
+{{/allowableValues}}
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -17,6 +17,6 @@ enum {{classname}} : string
     {
         return array_map(function (self $enum) {
             return $enum->value;
-        } , self::cases());
+        }, self::cases());
     }
 }
