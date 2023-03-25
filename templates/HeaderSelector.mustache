@@ -1,13 +1,4 @@
 <?php
-/**
- * HeaderSelector
- * PHP version 7.4
- *
- * @category Class
- * @package  {{invokerPackage}}
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
- */
 
 {{>partial_header}}
 /**
@@ -18,20 +9,13 @@
 
 namespace {{invokerPackage}};
 
-/**
- * HeaderSelector Class Doc Comment
- *
- * @category Class
- * @package  {{invokerPackage}}
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
- */
 class HeaderSelector
 {
     /**
-     * @param string[] $accept
-     * @param string   $contentType
-     * @param bool     $isMultipart
+     * @param list<string> $accept
+     * @param string       $contentType
+     * @param bool         $isMultipart
+     *
      * @return string[]
      */
     public function selectHeaders(array $accept, string $contentType, bool $isMultipart): array
@@ -57,7 +41,7 @@ class HeaderSelector
     /**
      * Return the header 'Accept' based on an array of Accept provided.
      *
-     * @param string[] $accept Array of header
+     * @param array<string, string> $accept Array of header
      *
      * @return null|string Accept (e.g. application/json)
      */
@@ -87,13 +71,13 @@ class HeaderSelector
     }
 
     /**
-    * Create an Accept header string from the given "Accept" headers array, recalculating all weights
-    *
-    * @param string[] $accept            Array of Accept Headers
-    * @param string[] $headersWithJson   Array of Accept Headers of type "json"
-    *
-    * @return string "Accept" Header (e.g. "application/json, text/html; q=0.9")
-    */
+     * Create an Accept header string from the given "Accept" headers array, recalculating all weights
+     *
+     * @param list<string> $accept          Array of Accept Headers
+     * @param list<string> $headersWithJson Array of Accept Headers of type "json"
+     *
+     * @return string "Accept" Header (e.g. "application/json, text/html; q=0.9")
+     */
     private function getAcceptHeaderWithAdjustedWeight(array $accept, array $headersWithJson): string
     {
         $processedHeaders = [
@@ -103,7 +87,6 @@ class HeaderSelector
         ];
 
         foreach ($accept as $header) {
-
             $headerData = $this->getHeaderAndWeight($header);
 
             if (stripos($headerData['header'], 'application/json') === 0) {
@@ -136,7 +119,7 @@ class HeaderSelector
      *
      * @param string $header "Accept" Header
      *
-     * @return array with the header and its weight
+     * @return array{header: string, weight: int} with the header and its weight
      */
     private function getHeaderAndWeight(string $header): array
     {
@@ -157,10 +140,11 @@ class HeaderSelector
     }
 
     /**
-     * @param array[] $headers
-     * @param float   $currentWeight
-     * @param bool    $hasMoreThan28Headers
-     * @return string[] array of adjusted "Accept" headers
+     * @param list<array{header: string, weight: int}> $headers
+     * @param float                                    $currentWeight
+     * @param bool                                     $hasMoreThan28Headers
+     *
+     * @return list<string> array of adjusted "Accept" headers
      */
     private function adjustWeight(array $headers, float &$currentWeight, bool $hasMoreThan28Headers): array
     {
@@ -188,6 +172,7 @@ class HeaderSelector
     /**
      * @param string $header
      * @param int    $weight
+     *
      * @return string
      */
     private function buildAcceptHeader(string $header, int $weight): string
@@ -219,6 +204,7 @@ class HeaderSelector
      *
      * @param int  $currentWeight varying from 1 to 1000 (will be divided by 1000 to build the quality value)
      * @param bool $hasMoreThan28Headers
+     *
      * @return int
      */
     public function getNextWeight(int $currentWeight, bool $hasMoreThan28Headers): int
