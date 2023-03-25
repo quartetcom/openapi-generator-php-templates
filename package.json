@@ -1,6 +1,6 @@
 {
   "name": "@quartetcom/openapi-generator-php-templates",
-  "version": "8.1.1",
+  "version": "8.2.0",
   "description": "OpenAPI Generator templates for PHP 8.1+ with enum and type declarations support.",
   "author": "Naoki Ikeguchi <n-ikeguchi@quartetcom.co.jp>",
   "license": "MIT",
