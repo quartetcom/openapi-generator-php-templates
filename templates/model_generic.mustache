@@ -385,7 +385,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     {
 {{#isNullable}}
         if (is_null(${{name}})) {
-            array_push($this->openAPINullablesSetToNull, '{{name}}');
+            $this->openAPINullablesSetToNull[] = '{{name}}';
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('{{name}}', $nullablesSetToNull);
