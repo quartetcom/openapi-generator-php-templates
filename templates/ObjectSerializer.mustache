@@ -126,11 +126,11 @@ class ObjectSerializer
      * Take value and turn it into a string suitable for inclusion in
      * the path, by url-encoding.
      *
-     * @param string $value a string which will be part of the path
+     * @param string|bool|\DateTime|\Stringable $value a string which will be part of the path
      *
      * @return string the serialized object
      */
-    public static function toPathValue(string $value): string
+    public static function toPathValue(mixed $value): string
     {
         return rawurlencode(self::toString($value));
     }
