@@ -101,7 +101,7 @@ class HeaderSelector
         }
 
         $acceptHeaders = [];
-        $currentWeight = 1000;
+        $currentWeight = 1000.0;
 
         $hasMoreThan28Headers = count($accept) > 28;
 
@@ -209,7 +209,7 @@ class HeaderSelector
      *
      * @return int
      */
-    public function getNextWeight(int $currentWeight, bool $hasMoreThan28Headers): int
+    public function getNextWeight(float $currentWeight, bool $hasMoreThan28Headers): int
     {
         if ($currentWeight <= 1) {
             return 1;
