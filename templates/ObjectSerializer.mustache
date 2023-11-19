@@ -212,7 +212,7 @@ class ObjectSerializer
         }
 
         # Handle DateTime objects in query
-        if($openApiType === \DateTime::class && $value instanceof \DateTime) {
+        if($openApiType === '\DateTime' && $value instanceof \DateTime) {
             return ["{$paramName}" => $value->format(self::$dateTimeFormat)];
         }
 
@@ -429,7 +429,7 @@ class ObjectSerializer
             return $class::tryFrom($data);
         }
 
-        if ($class === \DateTime::class) {
+        if ($class === '\DateTime') {
             // Some APIs return an invalid, empty string as a
             // date-time property. DateTime::__construct() will return
             // the current time for empty input which is probably not
