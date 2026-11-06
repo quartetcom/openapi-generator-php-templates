@@ -13,7 +13,7 @@ npm init
 ### Add this package (templates) as a dependency
 
 ```shell
-npm install 'quartetcom/openapi-generator-php-templates@~8.1'
+npm install 'quartetcom/openapi-generator-php-templates@~8.2'
 ```
 
 ### Run openapi-generator-cli with `-t` option
